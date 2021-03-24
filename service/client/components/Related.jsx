@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { Component } from "react";
+import token from '../config/config';
 
 export default class Related extends Component {
   constructor() {
@@ -15,12 +16,11 @@ export default class Related extends Component {
   }
 
   getProductFromApi() {
-      const token = 'd01bf77fd26f047a94bd305495be89b050d8aba9';
 
       axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products', {headers: {
         "Access-Control-Allow-Origin" : "*",
         "Content-type": "Application/json",
-        "Authorization": `Bearer ${token}`
+        "Authorization": ` ${token}`
         }   
     }
        
@@ -40,7 +40,8 @@ export default class Related extends Component {
       <div>
           {console.log('data', this.state)}
         <h1>hello Related component </h1>
-      </div>
+       </div>
+
     );
   }
 }
