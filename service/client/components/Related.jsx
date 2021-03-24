@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { Component } from "react";
 import token from "../config/config";
 import Card from "./Card.jsx";
-import CardDelete from './CardDelete.jsx'
+import CardDelete from "./CardDelete.jsx";
 
 export default class Related extends Component {
   constructor() {
@@ -21,9 +21,9 @@ export default class Related extends Component {
     axios
       .get("https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products", {
         headers: {
-          // "Access-Control-Allow-Origin" : "*",
-          // "Content-type": "Application/json",
-          // "Authorization": ` ${token}`
+          "Access-Control-Allow-Origin" : "*",
+          "Content-type": "Application/json",
+          "Authorization": ` ${token}`
         },
       })
       .then((res) => {
@@ -39,15 +39,20 @@ export default class Related extends Component {
   }
 
   render() {
+    const {products} = this.state
     return (
       <div>
         {console.log("data", this.state)}
 
-        <Card />
-        <br/><br/><br/><br/><br/><br/>
+        <Card products={products} />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
 
-        <CardDelete />
-        
+      
       </div>
     );
   }
