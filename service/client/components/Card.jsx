@@ -10,12 +10,11 @@ export default function Card(props) {
     
     <div className="div-card-container">
       {console.log('this is my props ',props.products)}
-      {props.products.map((el)=> {
-            return (
+    
               
          
       
-      <div className="card" key = {el.id}>
+      <div className="card" >
         <div className="list-group list-group-flush">
           <div className="card-start-font">
             <i className="bi bi-star">
@@ -38,9 +37,9 @@ export default function Card(props) {
             className="card-img"
           />
 
-          <span className="span-card">categorie{el.category}</span>
-          <p className="card-parag">{el.description}</p>
-          <span className="span-card">${el.default_price}</span>
+          <span className="span-card">categorie</span>
+          <p className="card-parag">rite any tingh</p>
+          <span className="span-card">$152</span>
           <ReactStars
             onChange={ratingChanged}
             count={5}
@@ -52,9 +51,9 @@ export default function Card(props) {
             background-position="-69px -368px"
           />
         </div>
+        
       </div>
-         );
-        })}
+       
     </div>
   );
 }

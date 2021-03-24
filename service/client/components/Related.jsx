@@ -2,7 +2,9 @@ import axios from "axios";
 import React, { Component } from "react";
 import token from "../config/config";
 import Card from "./Card.jsx";
-import CardDelete from "./CardDelete.jsx";
+import Carousel from "./Carousel.jsx";
+import Carousel2 from "./Carrousel2.jsx";
+
 
 export default class Related extends Component {
   constructor() {
@@ -51,7 +53,8 @@ export default class Related extends Component {
         <br />
         <br />
         <br />
-
+        <Carousel />
+        <Carousel2 />
       
       </div>
     );
