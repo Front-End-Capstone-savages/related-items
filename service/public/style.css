@@ -1,4 +1,26 @@
-body {
-  margin: 0px;
-  padding: 0px;
+.card__image {
+  height: 50px;
+  width: 50px;
+  /* margin-top: 10px; */
+  box-shadow: 0 10px 50px rgb(250, 249, 249);
+}
+.div-card-container {
+  display: grid;
+  justify-content: center;
+  margin: auto;
+  padding: 20px;
+  height: 200px;
+  width: 200px;
+}
+.card-start-font {
+  position: relative;
+  left: 130px;
+}
+
+.card-parag {
+  color: black;
+}
+.span-card {
+  color: black;
+  font-size: 13px;
 }
