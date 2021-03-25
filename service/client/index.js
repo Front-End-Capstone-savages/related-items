@@ -1,4 +1,4 @@
-import NameOfTheService from './components/NameOfTheService.jsx';
+// import NameOfTheService from './components/NameOfTheService.jsx';
 import App from './App.jsx'
 import ReactDOM from "react-dom";
 

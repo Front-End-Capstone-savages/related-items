@@ -2,9 +2,6 @@ import axios from "axios";
 import React, { Component } from "react";
 import token from "../config/config";
 import Card from "./Card.jsx";
-import Carousel from "./Carousel.jsx";
-import Carousel2 from "./Carrousel2.jsx";
-import CardDelete from './CardDelete.jsx'
 
 
 export default class Related extends Component {
@@ -18,15 +15,16 @@ export default class Related extends Component {
   }
   componentDidMount() {
     this.getProductFromApi();
+    this.myProductsdata()
   }
 
   getProductFromApi() {
     axios
       .get("https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products", {
         headers: {
-          "Access-Control-Allow-Origin" : "*",
-          "Content-type": "Application/json",
-          // "Authorization": ` ${token}`
+          // "Access-Control-Allow-Origin": "*",
+          // "Content-type": "Application/json",
+          "Authorization": ` ${token}`
         },
       })
       .then((res) => {
@@ -41,25 +39,31 @@ export default class Related extends Component {
       });
   }
 
+  myProductsdata() {
+    axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products').then((res)=> {
+      console.log(res.data)
+    }).catch((err)=> {
+      console.log(err.message)
+    })
+  }
+
   render() {
-    const {products} = this.state
+    const { products } = this.state;
+    
     return (
-      <div>
-        {console.log("data", this.state)}
+      <div className='container'>
+        <div className="row ">
+         <div className="col-3 "> <Card /> </div>
+         <div className="col-3 "> <Card /> </div>
+         <div className="col-3 "> <Card /> </div>
+         <div className="col-3 "> <Card /> </div>
 
-        <Card products={products} />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        {/* <Carousel /> */}
-       
-        <br/><br/>
-        <Carousel2 />
-
+         </div>
       
+          
+        
+       
+       
       </div>
     );
   }
