@@ -9,18 +9,46 @@ export default class Related extends Component {
     super();
     this.state = {
       products: [],
+      prodId: [],
+      prodStyle: [],
+      arrayId: [],
       error: "",
     };
     this.getProductFromApi = this.getProductFromApi.bind(this);
   }
   componentDidMount() {
+      
     this.getProductFromApi();
-    this.myProductsdata()
+    this.getProductIDFromApi();
+    this.getProductStyleFromApi();
   }
 
-  getProductFromApi() {
-    axios
+   getProductFromApi() {
+     
+      axios
       .get("https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products", {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Content-type": "Application/json",
+          "Authorization": ` ${token}`
+        },
+      })
+      .then((res) => {
+        this.setState({
+          products: res.data,
+        });
+      }).catch((err)=> {
+        this.setState({
+          error:err.message
+        })
+      })
+     }
+    
+ 
+
+  getProductIDFromApi() {
+    axios
+      .get("https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/11001", {
         headers: {
           // "Access-Control-Allow-Origin": "*",
           // "Content-type": "Application/json",
@@ -29,7 +57,7 @@ export default class Related extends Component {
       })
       .then((res) => {
         this.setState({
-          products: res.data,
+          prodId: res.data,
         });
       })
       .catch((err) => {
@@ -38,33 +66,64 @@ export default class Related extends Component {
         });
       });
   }
-
-  myProductsdata() {
-    axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products').then((res)=> {
-      console.log(res.data)
-    }).catch((err)=> {
-      console.log(err.message)
-    })
+  
+  getProductStyleFromApi() {
+    axios
+      .get("https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/11001/styles", {
+        headers: {
+          // "Access-Control-Allow-Origin": "*",
+          // "Content-type": "Application/json",
+          "Authorization": ` ${token}`
+        },
+      })
+      .then((res) => {
+         this.setState( {
+          prodStyle: res.data,
+        });
+      })
+      .catch((err) => {
+        this.setState({
+          error: err.message,
+        });
+      });
   }
+  
+  
 
   render() {
-    const { products } = this.state;
+    const { products, prodId, prodStyle } = this.state;
     
     return (
-      <div className='container'>
-        <div className="row ">
-         <div className="col-3 "> <Card /> </div>
-         <div className="col-3 "> <Card /> </div>
-         <div className="col-3 "> <Card /> </div>
-         <div className="col-3 "> <Card /> </div>
-
-         </div>
-      
-          
-        
-       
-       
+      <div className="container">
+      <div className="carousel slide" data-ride="carousel">
+        <div className="carousel-inner" style={{height:"100em"}}>
+          <div className=" carousel-item active">
+            <div className="row">
+            <div className="col-3 d-block w-100"><Card /></div>
+            <div className="col-3 d-block w-100"><Card /></div>
+            <div className="col-3 d-block w-100"><Card /></div>
+            <div className="col-3 d-block w-100"><Card /></div>
+            </div>
+          </div>
+          <div className=" carousel-item ">
+            <div className="row">
+            <div className="col-3 d-block w-100"><Card /></div>
+            <div className="col-3 d-block w-100"><Card /></div>
+            <div className="col-3 d-block w-100"><Card /></div>
+            <div className="col-3 d-block w-100"><Card /></div>
+            </div>
+          </div>
+          <div className=" carousel-item ">
+            <div className="row">
+            <div className="col-3 d-block w-100"><Card /></div>
+            <div className="col-3 d-block w-100"><Card /></div>
+            <div className="col-3 d-block w-100"><Card /></div>
+            <div className="col-3 d-block w-100"><Card /></div>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
     );
   }
 }

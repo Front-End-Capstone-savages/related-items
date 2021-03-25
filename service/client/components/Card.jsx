@@ -10,6 +10,10 @@ export default function Card(props) {
     
     <div className="div-card-container">
       {console.log('this is my props ',props.products)}
+      {console.log('this is my id prod props ',props.prodId)}
+      {console.log('this is my id prod Style ',props.prodStyle)}
+
+
     
               
          
