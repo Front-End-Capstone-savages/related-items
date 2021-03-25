@@ -4,6 +4,7 @@ import token from "../config/config";
 import Card from "./Card.jsx";
 import Carousel from "./Carousel.jsx";
 import Carousel2 from "./Carrousel2.jsx";
+import CardDelete from './CardDelete.jsx'
 
 
 export default class Related extends Component {
@@ -25,7 +26,7 @@ export default class Related extends Component {
         headers: {
           "Access-Control-Allow-Origin" : "*",
           "Content-type": "Application/json",
-          "Authorization": ` ${token}`
+          // "Authorization": ` ${token}`
         },
       })
       .then((res) => {
@@ -53,8 +54,11 @@ export default class Related extends Component {
         <br />
         <br />
         <br />
-        <Carousel />
+        {/* <Carousel /> */}
+       
+        <br/><br/>
         <Carousel2 />
+
       
       </div>
     );
