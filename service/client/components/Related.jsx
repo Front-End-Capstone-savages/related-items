@@ -51,8 +51,8 @@ export default class Related extends Component {
     axios
       .get("https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/11001", {
         headers: {
-          // "Access-Control-Allow-Origin": "*",
-          // "Content-type": "Application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Content-type": "Application/json",
           "Authorization": ` ${token}`
         },
       })
@@ -72,8 +72,8 @@ export default class Related extends Component {
     axios
       .get("https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/11001/styles", {
         headers: {
-          // "Access-Control-Allow-Origin": "*",
-          // "Content-type": "Application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Content-type": "Application/json",
           "Authorization": ` ${token}`
         },
       })
@@ -95,17 +95,16 @@ export default class Related extends Component {
     const { products, prodId, prodStyle } = this.state;
     
     return (
-      <div>
+      <div style={{backgroundColor: 'white'}}>
+    <Carousel3 />
 
-      <div className="container">
+      <div className="container"  style={{backgroundColor: 'white'}}>
       <div className="carousel slide" data-ride="carousel">
         <div className="carousel-inner" style={{height:"100em"}}>
           <div className=" carousel-item active">
             <div className="row">
-            <div className="col-3 d-block w-100"><Card  /></div>
-            <div className="col-3 d-block w-100"><Card /></div>
-            <div className="col-3 d-block w-100"><Card /></div>
-            <div className="col-3 d-block w-100"><Card /></div>
+            {/* <div className="col-3 d-block w-100"><Card  products={products}  prodId={prodId} prodStyle={prodStyle} /></div> */}
+          
             </div>
           </div>
           <div className=" carousel-item ">
@@ -127,8 +126,6 @@ export default class Related extends Component {
         </div>
       </div>
     </div>
-    <Carousel3 />
-    <Card products={products}  prodId={prodId} prodStyle={prodStyle}/>
       </div>
     );
   }
