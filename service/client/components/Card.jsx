@@ -11,7 +11,7 @@ export default function Card(props) {
     <div className="div-card-container">
       {console.log('this is my props ',props.products)}
       {console.log('this is my id prod props ',props.prodId)}
-      {console.log('this is my id prod Style ',props.prodStyle)}
+      {console.log('this is my id prod props ',props.prodStyle)}
 
 
     
@@ -42,7 +42,7 @@ export default function Card(props) {
           />
 
           <span className="span-card">categorie</span>
-          <p className="card-parag">rite any tingh</p>
+          <p className="card-parag"> write any tingh pixa pixawi </p>
           <span className="span-card">$152</span>
           <ReactStars
             onChange={ratingChanged}
