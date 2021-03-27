@@ -1,24 +1,46 @@
 import React from "react";
+import { useEffect, useState } from "react";
 import ReactStars from "react-rating-stars-component";
+import axios from "axios";
+import { data } from "jquery";
+import popup from "./Popup.jsx";
 
 export default function Card(props) {
   const ratingChanged = (newRating) => {
     console.log(newRating);
   };
+  //  [data, getData] = useState('')
 
+  //  useEffect(()=> {
+  //   getmyData();
+  //  },[])
+  //  const getmyData = ()=> {
+  //   axios
+  //   .get("https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/11001/styles", {
+  //     headers: {
+  //       "Access-Control-Allow-Origin": "*",
+  //       "Content-type": "Application/json",
+  //       "Authorization": ` ${token}`
+  //     },
+  //   }).then((res)=> {
+
+  //     const allData = res.data;
+  //     getData(allData);
+  //   })
+
+  //  }
+  const { prodStyle, products, prodId } = props;
   return (
-    
+    <div>
+
+
     <div className="div-card-container">
-      {console.log('this is my props ',props.products)}
-      {console.log('this is my id prod props ',props.prodId)}
-      {console.log('this is my id prod props ',props.prodStyle)}
+      {console.log("#############################################", data)}
+      {console.log("this is my Prod Style *******", prodStyle)}
+      {console.log("this is my Prod ID *******", prodId)}
+      {console.log("this is my Prod  *******", products)}
 
-
-    
-              
-         
-      
-      <div className="card" >
+      <div className="card">
         <div className="list-group list-group-flush">
           <div className="card-start-font">
             <i className="bi bi-star">
@@ -26,7 +48,7 @@ export default function Card(props) {
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
                 height="16"
-                fill="currentColor"
+                fill="black"
                 className="bi bi-star"
                 viewBox="0 0 16 16"
               >
@@ -34,14 +56,14 @@ export default function Card(props) {
               </svg>
             </i>
           </div>
-          
+
           <img
             src="https://lh3.googleusercontent.com/ytP9VP86DItizVX2YNA-xTYzV09IS7rh4WexVp7eilIcfHmm74B7odbcwD5DTXmL0PF42i2wnRKSFPBHlmSjCblWHDCD2oD1oaM1CGFcSd48VBKJfsCi4bS170PKxGwji8CPmehwPw=w200-h247-no"
             alt="Person"
             className="card-img"
           />
 
-          <span className="span-card">categorie</span>
+          <span className="span-card" data-toggle="modal" data-target="#exampleModalLong" >categorie</span>
           <p className="card-parag"> write any tingh pixa pixawi </p>
           <span className="span-card">$152</span>
           <ReactStars
@@ -55,9 +77,49 @@ export default function Card(props) {
             background-position="-69px -368px"
           />
         </div>
+      </div>
+      <div className="modal fade" id="exampleModal" tabIndex={-1} role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal-dialog" role="document">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div className="modal-body">
+              ...
+            </div>
+            <div className="modal-footer">
+              <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" className="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div className='div-modal-container'>
+
+    
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
         
       </div>
-       
+    </div>
+  </div>
+</div>
+</div>
     </div>
   );
 }

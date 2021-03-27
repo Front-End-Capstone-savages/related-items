@@ -1,3 +1,6 @@
+body{
+  background-color: #fff;
+}
 .card__image {
   height: 50px;
   width: 50px;
@@ -35,9 +38,16 @@ li{
   justify-content: center;
   height: 100vh;
 }
+.del-card-container {
+  position: relative;
+  top: 200px;
+}
+.div-modal-container {
+  background-color: blue;
+}
 
 /* ---carousel  */
-.multi-item-carousel .carousel-inner > .item {
+/* .multi-item-carousel .carousel-inner > .item {
   transition: 500ms ease-in-out left;
 }
 .multi-item-carousel .carousel-inner .active.left {
@@ -66,7 +76,7 @@ li{
   background-image: none;
 }
 body {
-  background: #333;
+  background: #fff;
   color: #ddd;
 }
 h1 {
@@ -76,14 +86,13 @@ h1 {
   margin-top: 1em;
   margin-bottom: 2em;
   text-shadow: 0px 2px 0px #000000;
-}
+} */
 
 
-/* ----vertical carousel  */
 
 
-.carousel-inner.vertical {
-  height: 100%; /*Note: set specific height here if not, there will be some issues with IE browser*/
+/* .carousel-inner.vertical {
+  height: 100%; 
 }
 .carousel-inner.vertical > .item {
   -webkit-transition: .6s ease-in-out top;
@@ -164,4 +173,4 @@ h1 {
 #carousel-pager .carousel-control.right {
     top: initial;
     width: 100%;
-}
+} */

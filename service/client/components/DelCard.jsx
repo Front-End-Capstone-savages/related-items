@@ -24,9 +24,8 @@ export default function DelCard() {
               <div className="item">
                 <div className="col-xs-4"><CardDelete /></div>
               </div>
-              <div className="item">
-                <div className="col-xs-4"><CardDelete /></div>
-              </div>
+            
+           
               {/* add  more items here */}
               {/* Example item start:  */}
              
